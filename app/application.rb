@@ -7,7 +7,7 @@ class Application
 
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      item_object = @@items.collect{|item| item.name == item_name}
+      item_object = @@items.any?{|item| item.name == item_name}
       binding.pry
       if item_object
         return item_object.price
