@@ -8,8 +8,8 @@ class Application
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
       item_object = @@items.each(|item| item.name == item_name)
-      if
-        return item_name.price
+      if item_object
+        return item_object.price
       else
         binding.pry
         resp.write "Item not found"
